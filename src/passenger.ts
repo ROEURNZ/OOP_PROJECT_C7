@@ -1,6 +1,6 @@
 import { MealType } from "./Meal";
 
-class Passenger extends Person {
+export class Passenger extends Person {
     private specialMeal: MealType;
     private frequentFlyerMembership: string;
     private bookingReferenceNumber: string;

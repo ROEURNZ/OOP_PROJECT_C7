@@ -1,6 +1,7 @@
 import { Flight } from './Flight';
 import { Aircraft } from './Aircraft';
 import { Meal, MealType } from './Meal';
+import { Passenger } from './Passenger';
 import { Employee } from './Employee';
 import { Schedule } from './Schedule';
 
