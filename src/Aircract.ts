@@ -1,4 +1,4 @@
-export class Aroplane {
+export class Aircraft {
     private regiStrationNumber: string;
     private model: string;
     private capacity: number;
