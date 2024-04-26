@@ -8,6 +8,7 @@ class Passenger extends Person {
         this.specialMeal = specialMeal;
         this.frequentFlyerMembership = frequentFlyerMembership;
         this.bookingReferenceNumber = bookingReferenceNumber;
+        
     }
 
     getSpecialMeal(): MealType {
