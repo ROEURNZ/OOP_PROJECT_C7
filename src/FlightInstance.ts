@@ -3,6 +3,19 @@ import { Aircraft } from './Aircraft';
 import { Meal } from './Meal';
 import { Employee } from './Employee';
 import { Schedule } from './Schedule';
+
+export enum FlightStatus {
+    Active,
+    Scheduled,
+    Delayed,
+    Departed,
+    Landed,
+    InAir,
+    Arrived,
+    Canceled,
+    Diverted,
+    Unknown
+}
 export class FlightInstance {
     private date: Date;
     private departureTime: Date;
