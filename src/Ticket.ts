@@ -3,6 +3,21 @@ import { Aircraft } from './Aircraft';
 import { Meal } from './Meal';
 import { Employee } from './Employee';
 import { Schedule } from './Schedule';
+import { Passenger } from './passenger';
+        
+export enum ClassType {
+    Economy,
+    Business,
+    First,
+    Classical
+}
+
+export enum MealType {
+    Standard,
+    Vegetarian,
+    Vegan,
+    GlutenFree
+}
 
 export class Ticket {
     private fareBasis: string;

@@ -1,4 +1,6 @@
-class Passenger extends Person {
+
+import { Ticket } from "./Ticket";
+export class Passenger extends Person {
     private specialMeal: MealType;
     private frequentFlyerMembership: string;
     private bookingReferenceNumber: string;
