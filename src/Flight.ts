@@ -1,3 +1,7 @@
+import { FlightInstance } from './FlightInstance';
+import { Airline } from './Airline';
+
+
 export class Flight {
     private flightNumber: string;
     private flightInstances: FlightInstance[];
