@@ -1,5 +1,5 @@
+import { MealType } from "./Meal";
 
-import { Ticket } from "./Ticket";
 export class Passenger extends Person {
     private specialMeal: MealType;
     private frequentFlyerMembership: string;
@@ -10,6 +10,7 @@ export class Passenger extends Person {
         this.specialMeal = specialMeal;
         this.frequentFlyerMembership = frequentFlyerMembership;
         this.bookingReferenceNumber = bookingReferenceNumber;
+        
     }
 
     getSpecialMeal(): MealType {
