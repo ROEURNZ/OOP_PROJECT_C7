@@ -1,9 +1,15 @@
 import { Flight } from './Flight';
 import { Aircraft } from './Aircraft';
-import { Meal } from './Meal';
+import { Meal, MealType } from './Meal';
 import { Employee } from './Employee';
 import { Schedule } from './Schedule';
 
+export enum ClassType {
+    Economy,
+    Business,
+    First,
+    Classical
+}
 export class Ticket {
     private fareBasis: string;
     private classType: ClassType;
