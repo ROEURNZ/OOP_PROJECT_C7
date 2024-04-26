@@ -1,12 +1,31 @@
-class Employee extends Person {
-    private type : EmployeeType;
+import { FlightInstance } from "./FlightInstance";
 
-    constructor(id: string, name: string, email: string, phone: string,type : EmployeeType) {
-        super(id, name, email,phone);
-        this.type = EmployeeType;
+export enum EmployeeType {
+    Pilot,
+    CoPilot,
+    FlightAttendant,
+    Mechanic,
+    Dispatcher,
+    GroundCrew
+}
+export class Employee {
+    private type: EmployeeType;
+    private flightInstances: FlightInstance[];
+
+    constructor(type: EmployeeType) {
+        this.type = type;
+        this.flightInstances = [];
     }
-    
+
+    addFlightInstance(instance: FlightInstance) {
+        this.flightInstances.push(instance);
+    }
+
     getType(): EmployeeType {
         return this.type;
+    }
+
+    getFlightInstances(): FlightInstance[] {
+        return this.flightInstances;
     }
 }
