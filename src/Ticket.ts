@@ -3,7 +3,7 @@ import { Aircraft } from './Aircraft';
 import { Meal, MealType } from './Meal';
 import { Passenger } from './Passenger';
 import { Employee } from './Employee';
-import { Schedule } from './Schedule';
+import { FlightInstance } from './FlightInstance';
 
 export enum ClassType {
     Economy,

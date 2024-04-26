@@ -8,6 +8,8 @@ export enum EmployeeType {
     Dispatcher,
     GroundCrew
 }
+
+
 export class Employee {
     private type: EmployeeType;
     private flightInstances: FlightInstance[];
