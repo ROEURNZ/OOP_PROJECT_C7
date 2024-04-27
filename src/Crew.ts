@@ -1,5 +1,5 @@
 
-import { Person } from './Person'; 
+import { Person } from './person'; 
 
 class Crew extends Person {
     private position: string;

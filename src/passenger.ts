@@ -1,4 +1,5 @@
 import { MealType } from "./Meal";
+import { Person } from "./person";
 export class Passenger extends Person {
     private specialMeal: MealType;
     private frequentFlyerMembership: string;
