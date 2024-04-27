@@ -1,4 +1,4 @@
-class Crew extends Person{
+class Crew extends Person {
     private position : string;
     private salary : string
 
