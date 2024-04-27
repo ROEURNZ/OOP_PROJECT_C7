@@ -1,16 +1,16 @@
 export class Aircraft {
-    private regiStrationNumber: string;
+    private registrationNumber: string;
     private model: string;
     private capacity: number;
 
-    constructor(regiStrationNumber: string, model: string, capacity: number) {
-        this.regiStrationNumber = regiStrationNumber;
+    constructor(registrationNumber: string, model: string, capacity: number) {
+        this.registrationNumber = registrationNumber;
         this.model = model;
         this.capacity = capacity;
     }
 
-    getRegiStrationNumber(): string {
-        return this.regiStrationNumber;
+    getRegistrationNumber(): string {
+        return this.registrationNumber;
     }
     getModel(): string {
         return this.model;

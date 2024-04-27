@@ -14,7 +14,8 @@ import { Leg } from "./Leg";
 import { BoardingPass } from "./BoardingPass";
 import { Gate } from "./Gate";
 import { Booking} from "./Booking";
-import { Employee, EmployeeType} from "./Employee";
+import { Employee, EmployeeType } from "./Employee";
+import { Schedule } from "./Schedule";
 
 
 // Define airports
@@ -85,20 +86,20 @@ const boardingPasses = [
     new BoardingPass(passengers[1], flightInstances[1])
 ];
 
-const baggages = [
-    new Baggage(passengers[0]),
-    new Baggage(passengers[1])
-];
+// const baggages = [
+//     new Baggage(passengers[0]),
+//     new Baggage(passengers[1])
+// ];
 
-const baggageTags = [
-    new BaggageTag(baggages[0]),
-    new BaggageTag(baggages[1])
-];
+// const baggageTags = [
+//     new BaggageTag(baggages[0]),
+//     new BaggageTag(baggages[1])
+// ];
 
-const bookings = [
-    new Booking('B001', 1000),
-    new Booking('B002', 1500)
-];
+// const bookings = [
+//     new Booking('B001', 1000),
+//     new Booking('B002', 1500)
+// ];
 
 
 // Create instances of Employee
@@ -230,19 +231,19 @@ boardingPasses.forEach(boardingPass => {
 });
 
 console.log("Baggage:");
-baggages.forEach(baggage => {
+Baggage.forEach(baggage => {
     console.log("Passenger:", baggage.getPassenger().getName());
     console.log("\n");
 });
 
 console.log("Baggage Tag:");
-baggageTags.forEach(baggageTag => {
+BaggageTag.forEach(baggageTag => {
     console.log("Baggage:", baggageTag.getBaggage().getPassenger().getName());
     console.log("\n");
 });
 
 console.log("Booking:");
-bookings.forEach(booking => {
+Booking.forEach(booking => {
     console.log("Booking Number:", booking.getBookingNumber());
     console.log("Total Amount:", booking.getTotalAmount());
     console.log("\n");
@@ -253,6 +254,6 @@ airports.forEach(airport => {
     console.log("Name:", airport.getName());
     console.log("Code:", airport.getCode());
     console.log("Address:", airport.getAddress());
-    console.log("Contact Number:", airport.getContactNumber());
+    console.log("Contact Number:", airport.getContactNUmber());
     console.log("\n");
 });
