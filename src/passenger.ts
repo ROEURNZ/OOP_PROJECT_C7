@@ -13,6 +13,7 @@ export class Passenger extends Person {
         
     }
 
+    
     getSpecialMeal(): MealType {
         return this.specialMeal;
     }
@@ -25,3 +26,4 @@ export class Passenger extends Person {
         return this.bookingReferenceNumber;
     }
 }
+

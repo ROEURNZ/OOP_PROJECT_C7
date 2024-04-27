@@ -1,7 +1,7 @@
 
 import { Person } from './person'; 
 
-class Crew extends Person {
+export class Crew extends Person {
     private position: string;
     private salary: number; 
 

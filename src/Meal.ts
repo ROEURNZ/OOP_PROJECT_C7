@@ -23,3 +23,4 @@ export class Meal {
         return this.quantity;
     }
 }
+
