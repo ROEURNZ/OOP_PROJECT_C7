@@ -1,4 +1,3 @@
-// File Crew.ts
 
 import { Person } from './Person'; 
 
