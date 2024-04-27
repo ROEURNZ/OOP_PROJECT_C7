@@ -4,6 +4,22 @@ import { Meal, MealType } from './Meal';
 import { Employee } from './Employee';
 import { FlightInstance } from './FlightInstance';
 import { Passenger } from './passenger';
+import { Schedule } from './Schedule';
+// import { Passenger } from './Passenger';
+        
+export enum ClassType {
+    Economy,
+    Business,
+    First,
+    Classical
+}
+
+export enum MealType {
+    Standard,
+    Vegetarian,
+    Vegan,
+    GlutenFree
+}
 
 export enum ClassType {
     Economy,
