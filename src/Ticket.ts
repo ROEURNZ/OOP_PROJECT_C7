@@ -1,10 +1,9 @@
+import { Passenger } from './Passenger';
 import { Flight } from './Flight';
+import { FlightInstance } from './FlightInstance';
 import { Aircraft } from './Aircraft';
-import { Meal, MealType } from './Meal';
-import { Passenger } from './Passenger';
+import { Meal } from './Meal';
 import { Employee } from './Employee';
-import { Schedule } from './Schedule';
-import { Passenger } from './Passenger';
         
 export enum ClassType {
     Economy,
@@ -20,12 +19,7 @@ export enum MealType {
     GlutenFree
 }
 
-export enum ClassType {
-    Economy,
-    Business,
-    First,
-    Classical
-}
+
 export class Ticket {
     private fareBasis: string;
     private classType: ClassType;
