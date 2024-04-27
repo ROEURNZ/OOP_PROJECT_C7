@@ -2,14 +2,13 @@ export class Airport {
     private name: string;
     private code: string;
     private address: string;
-    private contactNUmber: string;
+    private contactNumber: string;
 
-    constructor(name: string, code: string, address: string, contactNUmber: string) {
+    constructor(name: string, code: string, address: string, contactNumber: string) {
         this.name = name;
         this.code = code;
         this.address = address;
-        this.contactNUmber = contactNUmber;
-
+        this.contactNumber = contactNumber;
     }
 
     getName(): string {
@@ -23,8 +22,8 @@ export class Airport {
     getAddress(): string {
         return this.address;
     }
-    
-    getContactNUmber(): string {
-        return this.contactNUmber;
+
+    getContactNumber(): string {
+        return this.contactNumber;
     }
 }

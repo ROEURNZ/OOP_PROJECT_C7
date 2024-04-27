@@ -1,11 +1,8 @@
 export class Booking {
-    static forEach(arg0: (booking: any) => void) {
-        throw new Error('Method not implemented.');
-    }
     private bookingNumber: string;
-    private totalAmount : string;
+    private totalAmount: number;
 
-    constructor(bookingNumber: string, totalAmount: string) {
+    constructor(bookingNumber: string, totalAmount: number) {
         this.bookingNumber = bookingNumber;
         this.totalAmount = totalAmount;
     }
@@ -14,7 +11,7 @@ export class Booking {
         return this.bookingNumber;
     }
 
-    getTotalAmount(): string {
+    getTotalAmount(): number {
         return this.totalAmount;
     }
 }
