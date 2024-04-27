@@ -39,13 +39,13 @@ const aircraft: Aircraft[] = [
 
 // Create instances of objects
 const passengers = [
-    new Passenger('1', 'John Doe', 'john@example.com', '123456789', MealType.Standard, 'FF123', 'BRN001'),
-    new Passenger('2', 'Jane Doe', 'jane@example.com', '987654321', MealType.Vegetarian, 'FF456', 'BRN002')
+    new Passenger('1', 'Votey', 'votey@gmail.com', '123456789', MealType.Standard, 'FF123', 'BRN001'),
+    new Passenger('2', 'Bunnarith', 'bunnarith@gmail.com', '987654321', MealType.Vegetarian, 'FF456', 'BRN002')
 ];
 
 const crew = [
-    new Crew('P001', 'Captain Smith', 'captain@example.com', '987654321', 'Captain', 50000),
-    new Crew('C001', 'CoPilot Johnson', 'copilot@example.com', '543216789', 'Co-Pilot', 40000)
+    new Crew('P001', 'Siem', 'siem@gmail.com', '987654321', 'Captain', 50000),
+    new Crew('C001', 'Ryfin', 'ryfin@gmail.com', '543216789', 'Co-Pilot', 40000)
 ];
 
 // Define flight instances
@@ -110,10 +110,11 @@ const employees: Employee[] = [
 employees[0].addFlightInstance(flightInstances[0]);
 employees[1].addFlightInstance(flightInstances[1]);
 
-// Log out information about employees
+
+
 console.log("Employees:");
 employees.forEach(employee => {
-    console.log("Employee Type:", employee.getType());
+    console.log("Employee Type:", EmployeeType[employee.getType()]);
     console.log("Flight Instances:", employee.getFlightInstances().map(instance => instance.getFlight().getFlightNumber()));
     console.log("\n");
 });
@@ -126,8 +127,12 @@ const schedules: Schedule[] = [
 
 // Log out information about schedules
 console.log("Schedules:");
-
-
+schedules.forEach(schedule => {
+    console.log("Date:", schedule.getDate());
+    console.log("Departure Time:", schedule.getDepartureTime());
+    console.log("Flight Number:", schedule.getFlightInstance().getFlight().getFlightNumber());
+    console.log("\n");
+});
 
 // Log out properties
 console.log("Passenger:");
@@ -136,7 +141,7 @@ passengers.forEach(passenger => {
     console.log("Name:", passenger.getName());
     console.log("Email:", passenger.getEmail());
     console.log("Phone:", passenger.getPhone());
-    console.log("Special Meal:", passenger.getSpecialMeal());
+    console.log("Special Meal:", MealType[passenger.getSpecialMeal()]);
     console.log("Frequent Flyer Membership:", passenger.getFrequentFlyerMembership());
     console.log("Booking Reference Number:", passenger.getBookingReferenceNumber());
     console.log("\n");
@@ -176,30 +181,30 @@ flights.forEach(flight => {
     console.log("\n");
 });
 
-console.log("Flight Instance:");
-flightInstances.forEach(instance => {
-    console.log("Date:", instance.getDate());
-    console.log("Departure Time:", instance.getDepartureTime());
-    console.log("Arrival Time:", instance.getArrivalTime());
-    console.log("Aircraft Registration Number:", instance.getAircraft().getRegistrationNumber());
-    console.log("Status:", instance.getStatus());
-    console.log("\n");
-});
-
 console.log("Ticket:");
 tickets.forEach(ticket => {
     console.log("Fare Basis:", ticket.getFareBasis());
-    console.log("Class Type:", ticket.getClassType());
+    console.log("Class Type:", ClassType[ticket.getClassType()]);
     console.log("Seat Number:", ticket.getSeatNumber());
-    console.log("Meal Type:", ticket.getMealType());
+    console.log("Meal Type:", MealType[ticket.getMealType()]);
     console.log("Passenger:", ticket.getPassenger().getName());
     console.log("\n");
 });
 
 console.log("Meal:");
 meals.forEach(meal => {
-    console.log("Meal Type:", meal.getMealType());
+    console.log("Meal Type:", MealType[meal.getMealType()]);
     console.log("Quantity:", meal.getQuantity());
+    console.log("\n");
+});
+
+console.log("Flight Instance:");
+flightInstances.forEach(instance => {
+    console.log("Date:", instance.getDate());
+    console.log("Departure Time:", instance.getDepartureTime());
+    console.log("Arrival Time:", instance.getArrivalTime());
+    console.log("Aircraft Registration Number:", instance.getAircraft().getRegistrationNumber());
+    console.log("Status:", FlightStatus[instance.getStatus()]);
     console.log("\n");
 });
 
