@@ -1,10 +1,6 @@
 import { Passenger } from './Passenger';
-import { Flight } from './Flight';
 import { FlightInstance } from './FlightInstance';
-import { Aircraft } from './Aircraft';
-import { Meal } from './Meal';
-import { Employee } from './Employee';
-        
+
 export enum ClassType {
     Economy,
     Business,
