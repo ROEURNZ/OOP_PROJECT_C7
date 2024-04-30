@@ -11,7 +11,7 @@ export class Passenger extends Person {
         this.specialMeal = specialMeal;
         this.frequentFlyerMembership = frequentFlyerMembership;
         this.bookingReferenceNumber = bookingReferenceNumber;
-        this.hasReturnTicket = hasReturnTicket;54
+        this.hasReturnTicket = hasReturnTicket;
         
     }
 
