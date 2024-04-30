@@ -1,4 +1,4 @@
-import { Passenger } from "../src/Passenger";
+import { Passenger } from "../Person/Passenger";
 import { FlightInstance } from "../Airport/FlightInstance";
 
 export class Baggage {
