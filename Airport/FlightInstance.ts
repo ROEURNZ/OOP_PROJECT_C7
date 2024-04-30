@@ -1,7 +1,7 @@
 import { Flight } from './Flight';
 import { Aircraft } from './Aircraft';
-import { Meal } from './Meal';
-import { Employee } from './Employee';
+import { Meal } from '../Meal/Meal';
+import { Employee } from '../Employee/Employee';
 
 export enum FlightStatus {
     Active,

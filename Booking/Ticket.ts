@@ -1,5 +1,5 @@
-import { Passenger } from './Passenger';
-import { FlightInstance } from './FlightInstance';
+import { Passenger } from '../Person/passenger';
+import { FlightInstance } from '../Airport/FlightInstance';
 
 export enum ClassType {
     Economy,

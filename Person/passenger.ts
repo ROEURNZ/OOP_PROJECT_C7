@@ -1,4 +1,4 @@
-import { MealType } from "./Meal";
+import { MealType } from "../Meal/Meal";
 import { Person } from "./person";
 export class Passenger extends Person {
     private specialMeal: MealType;
@@ -13,7 +13,6 @@ export class Passenger extends Person {
         
     }
 
-    
     getSpecialMeal(): MealType {
         return this.specialMeal;
     }

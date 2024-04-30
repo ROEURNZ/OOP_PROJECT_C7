@@ -2,7 +2,7 @@ export class Airline {
     private name :string;
     private code : string;
     private location: string;
-
+ 
     constructor(name: string, code: string, location: string) {
         this.name = name;
         this.code = code;

@@ -1,5 +1,5 @@
 
-import { FlightInstance } from "./FlightInstance";
+import { FlightInstance } from "../Airport/FlightInstance";
 
 export class Schedule {
     private date: Date;
