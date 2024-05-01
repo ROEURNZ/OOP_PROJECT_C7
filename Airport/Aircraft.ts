@@ -1,3 +1,4 @@
+
 export class Aircraft {
     private registrationNumber: string;
     private model: string;
@@ -12,11 +13,12 @@ export class Aircraft {
     getRegistrationNumber(): string {
         return this.registrationNumber;
     }
+
     getModel(): string {
         return this.model;
     }
+
     getCapacity(): number {
         return this.capacity;
     }
-    
 }

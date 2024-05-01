@@ -1,5 +1,7 @@
 import { MealType } from "../Meal/Meal";
-import { Person } from "./person";
+import { Person } from "./Person";
+
+// Derived classes
 export class Passenger extends Person {
     private specialMeal: MealType;
     private frequentFlyerMembership: string;
@@ -10,7 +12,6 @@ export class Passenger extends Person {
         this.specialMeal = specialMeal;
         this.frequentFlyerMembership = frequentFlyerMembership;
         this.bookingReferenceNumber = bookingReferenceNumber;
-        
     }
 
     getSpecialMeal(): MealType {
@@ -23,6 +24,11 @@ export class Passenger extends Person {
 
     getBookingReferenceNumber(): string {
         return this.bookingReferenceNumber;
+    }
+
+    getTickets(): Ticket[] {
+        // Assuming you have a method to get tickets associated with the passenger
+        return [];
     }
 }
 

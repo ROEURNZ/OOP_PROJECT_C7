@@ -1,263 +1,95 @@
-import { Aircraft } from './Aircraft';
-import { Airport } from './Airport';
-import { Airline } from './Airline';
-import { Passenger } from './Passenger';
-import { Flight } from './Flight';
-import { FlightStatus, FlightInstance } from './FlightInstance';
-import { MealType, ClassType , Ticket } from "./Ticket";
-import { Baggage } from "./Baggage";
-import { BaggageTag } from "./BaggageTag";
-import { Crew } from "./Crew";
-import { Meal } from "./Meal";
-import { Registration } from "./Registration";
-import { Leg } from "./Leg";
-import { BoardingPass } from "./BoardingPass";
-import { Gate } from "./Gate";
-import { Booking} from "./Booking";
-import { Employee, EmployeeType } from "./Employee";
-import { Schedule } from "./Schedule";
-
-// Define airports
-const airports: Airport[] = [
-    new Airport('Airport 1', 'APT1', 'Address 1', '123-456-7890'),
-    new Airport('Airport 2', 'APT2', 'Address 2', '987-654-3210')
-];
-
-// Define flights
-const flights: Flight[] = [
-    new Flight('F001', new Airline('Airline 1', 'AL01', 'Location 1')),
-    new Flight('F002', new Airline('Airline 2', 'AL02', 'Location 2'))
-];
-
-// Define aircraft
-const aircraft: Aircraft[] = [
-    new Aircraft('AP001', 'Boeing 737', 200),
-    new Aircraft('AP002', 'Airbus A320', 180)
-];
 
 
 
-// Create instances of objects
+
+import {
+    Crew,
+    Flight,
+    FlightStatus,
+    MealType,
+    Passenger,
+    Airline,
+    CrewMember,
+    Aircraft,
+    Ticket
+} from './Airlines';
+
+// Creating passengers
 const passengers = [
-    new Passenger('1', 'Votey', 'votey@gmail.com', '123456789', MealType.Standard, 'FF123', 'BRN001'),
-    new Passenger('2', 'Bunnarith', 'bunnarith@gmail.com', '987654321', MealType.Vegetarian, 'FF456', 'BRN002')
+    new Passenger("PA001", "Bunnarith Phoeurn", "bunnarith.phoeurn@student.passerellesnumeriques.org", "9876543210", MealType.Standard, "FF001", "BRN001"),
+    new Passenger("PA002", "Votey Chhoeurn", "chhoeurn.votey@student.passerellesnumeriques.org", "0123456789", MealType.Vegetarian, "FF002", "BRN002"),
+    new Passenger("PA003", "Ryfin Sok", "ryfin.sok@student.passerellesnumeriques.org", "1234567890", MealType.Standard, "FF003", "BRN003"),
+    new Passenger("PA004", "Dara Rith", "dara.rith@student.passerellesnumeriques.org", "0987654321", MealType.Vegan, "FF004", "BRN004")
 ];
 
-const crew = [
-    new Crew('P001', 'Siem', 'siem@gmail.com', '987654321', 'Captain', 50000),
-    new Crew('C001', 'Ryfin', 'ryfin@gmail.com', '543216789', 'Co-Pilot', 40000)
-];
+// Create instances of Crew, Aircraft, and Airline
+const crews = [
+    new Crew('C001', 'Captain Smith', 'captain@student.passerellesnumeriques.org', '+987654321', CrewMember.Pilot, 10000),
+    new Crew('C002', 'Sara Johnson', 'sara@student.passerellesnumeriques.org', '+123456789', CrewMember.FlightAttendant, 5000),
+    new Crew('C003', 'Top Notch', 'top.notch@student.passerellesnumeriques.org', '+123456789', CrewMember.Dispatcher, 25000)
+]
+const aircraft1 = new Aircraft('A001', 'Boeing 737', 180);
+const airline1 = new Airline('Phnom Penh Airlines', 'EXA', 'Phnom Penh City', crews, []);
 
-// Define flight instances
-const flightInstances: FlightInstance[] = [
-    new FlightInstance(new Date(), new Date(), new Date(), aircraft[0], flights[0], FlightStatus.Active),
-    new FlightInstance(new Date(), new Date(), new Date(), aircraft[1], flights[1], FlightStatus.Scheduled)
-];
+// Creating flights with defined aircraft and airline
+const flights = [
+    new Flight(
+        'F001',
+        new Date('2024-05-01T00:00:00'),
+        new Date('2024-05-01T01:00:00'),
+        new Date('2024-05-01T03:00:00'),
+        FlightStatus.Scheduled,
+        crews,
+        [],
+        101,
+        aircraft1,
+        airline1
+    ),
+    new Flight(
+        'F002',
+        new Date('2024-05-02T00:00:00'),
+        new Date('2024-05-02T03:00:00'),
+        new Date('2024-05-02T05:00:00'),
+        FlightStatus.Scheduled,
+        [crews[1]],
+        [],
+        102,
+        aircraft1,
+        airline1
+    )
+]
 
-const tickets = [
-    new Ticket('FB001', ClassType.Economy, 'T001', MealType.Standard, passengers[0], flightInstances[0]),
-    new Ticket('FB002', ClassType.Business, 'T002', MealType.Vegetarian, passengers[1], flightInstances[1])
-];
+// Adding flights to the airline
+flights.forEach(flight => airline1.addFlight(flight));
 
+// Adding passengers to flights
+flights[0].addPassenger(passengers[2]); // Adding John Doe to Flight F001
+flights[1].addPassenger(passengers[3]); // Adding Jane Smith to Flight F002
+flights[1].addPassenger(passengers[1]); // Adding Jane Smith to Flight F002
 
-const meals = [
-    new Meal(MealType.Standard, 1),
-    new Meal(MealType.Vegetarian, 2)
-];
+// Test User Stories
+console.log('\n=== User Story Test Cases ===\n');
 
-const legs = [
-    new Leg(airports[0], airports[1], flightInstances[0]),
-    new Leg(airports[1], airports[0], flightInstances[1])
-];
+// Test User Story 1: Retrieve passenger details by booking reference number for additional passengers
+const passengerDetails3 = airline1.getPassengerDetailsByBookingRef('BRN003');
+console.log('User Story 1 - Passenger Details by Booking Reference BRN003:');
+console.log(passengerDetails3);
 
-const registrations = [
-    new Registration(aircraft[0]),
-    new Registration(aircraft[1])
-];
+const passengerDetails4 = airline1.getPassengerDetailsByBookingRef('BRN004');
+console.log('\nUser Story 1 - Passenger Details by Booking Reference BRN004:');
+console.log(passengerDetails4);
 
-const gates = [
-    new Gate(airports[0]),
-    new Gate(airports[1])
-];
+// Test User Story 2: Count return tickets for Flight F002
+const returnTicketsCount2 = airline1.getReturnTicketPassengersCount('F002');
+console.log('\nUser Story 2 - Return Tickets Count for Flight F002:', returnTicketsCount2);
 
-const boardingPasses = [
-    new BoardingPass(passengers[0], flightInstances[0]),
-    new BoardingPass(passengers[1], flightInstances[1])
-];
+// Test User Story 4: Count meal types for Flight F002
+const mealRequirements2 = airline1.getMealRequirementsForFlight('F002');
+console.log('\nUser Story 4 - Meal Requirements for Flight F002:', mealRequirements2);
 
-const baggages = [
-    new Baggage(passengers[0]),
-    new Baggage(passengers[1])
-];
-
-const baggageTags = [
-    new BaggageTag(baggages[0]),
-    new BaggageTag(baggages[1])
-];
-
-const bookings = [
-    new Booking('B001', 1000),
-    new Booking('B002', 1500)
-];
-
-
-// Create instances of Employee
-const employees: Employee[] = [
-    new Employee(EmployeeType.Pilot),
-    new Employee(EmployeeType.FlightAttendant)
-];
-// Add flight instances to employees
-employees[0].addFlightInstance(flightInstances[0]);
-employees[1].addFlightInstance(flightInstances[1]);
-
-
-
-console.log("Employees:");
-employees.forEach(employee => {
-    console.log("Employee Type:", EmployeeType[employee.getType()]);
-    console.log("Flight Instances:", employee.getFlightInstances().map(instance => instance.getFlight().getFlightNumber()));
-    console.log("\n");
-});
-
-// Create instances of Schedule
-const schedules: Schedule[] = [
-    new Schedule(new Date(), new Date(), flightInstances[0]),
-    new Schedule(new Date(), new Date(), flightInstances[1])
-];
-
-// Log out information about schedules
-console.log("Schedules:");
-schedules.forEach(schedule => {
-    console.log("Date:", schedule.getDate());
-    console.log("Departure Time:", schedule.getDepartureTime());
-    console.log("Flight Number:", schedule.getFlightInstance().getFlight().getFlightNumber());
-    console.log("\n");
-});
-
-// Log out properties
-console.log("Passenger:");
-passengers.forEach(passenger => {
-    console.log("ID:", passenger.getID());
-    console.log("Name:", passenger.getName());
-    console.log("Email:", passenger.getEmail());
-    console.log("Phone:", passenger.getPhone());
-    console.log("Special Meal:", MealType[passenger.getSpecialMeal()]);
-    console.log("Frequent Flyer Membership:", passenger.getFrequentFlyerMembership());
-    console.log("Booking Reference Number:", passenger.getBookingReferenceNumber());
-    console.log("\n");
-});
-
-console.log("Crew:");
-crew.forEach(member => {
-    console.log("ID:", member.getID());
-    console.log("Name:", member.getName());
-    console.log("Email:", member.getEmail());
-    console.log("Phone:", member.getPhone());
-    console.log("Position:", member.getPosition());
-    console.log("Salary:", member.getSalary());
-    console.log("\n");
-});
-
-console.log("Aircraft:");
-aircraft.forEach(aircraft => {
-    console.log("Registration Number:", aircraft.getRegistrationNumber());
-    console.log("Model:", aircraft.getModel());
-    console.log("Capacity:", aircraft.getCapacity());
-    console.log("\n");
-});
-
-console.log("Airline:");
-flights.forEach(flight => {
-    console.log("Name:", flight.getAirline().getName());
-    console.log("Code:", flight.getAirline().getCode());
-    console.log("Location:", flight.getAirline().getLocation());
-    console.log("\n");
-});
-
-console.log("Flight:");
-flights.forEach(flight => {
-    console.log("Flight Number:", flight.getFlightNumber());
-    console.log("Airline:", flight.getAirline().getName());
-    console.log("\n");
-});
-
-console.log("Ticket:");
-tickets.forEach(ticket => {
-    console.log("Fare Basis:", ticket.getFareBasis());
-    console.log("Class Type:", ClassType[ticket.getClassType()]);
-    console.log("Seat Number:", ticket.getSeatNumber());
-    console.log("Meal Type:", MealType[ticket.getMealType()]);
-    console.log("Passenger:", ticket.getPassenger().getName());
-    console.log("\n");
-});
-
-console.log("Meal:");
-meals.forEach(meal => {
-    console.log("Meal Type:", MealType[meal.getMealType()]);
-    console.log("Quantity:", meal.getQuantity());
-    console.log("\n");
-});
-
-console.log("Flight Instance:");
-flightInstances.forEach(instance => {
-    console.log("Date:", instance.getDate());
-    console.log("Departure Time:", instance.getDepartureTime());
-    console.log("Arrival Time:", instance.getArrivalTime());
-    console.log("Aircraft Registration Number:", instance.getAircraft().getRegistrationNumber());
-    console.log("Status:", FlightStatus[instance.getStatus()]);
-    console.log("\n");
-});
-
-console.log("Leg:");
-legs.forEach(leg => {
-    console.log("Departure Airport:", leg.getDepartureAirport().getName());
-    console.log("Destination Airport:", leg.getDestinationAirport().getName());
-    console.log("\n");
-});
-
-console.log("Registration:");
-registrations.forEach(registration => {
-    console.log("Aircraft Registration Number:", registration.getAircraft().getRegistrationNumber());
-    console.log("\n");
-});
-
-console.log("Gate:");
-gates.forEach(gate => {
-    console.log("Airport:", gate.getAirport().getName());
-    console.log("\n");
-});
-
-console.log("Boarding Pass:");
-boardingPasses.forEach(boardingPass => {
-    console.log("Passenger:", boardingPass.getPassenger().getName());
-    console.log("Flight:", boardingPass.getFlightInstance().getFlight().getFlightNumber());
-    console.log("\n");
-});
-
-console.log("Baggage:");
-baggages.forEach(baggage => {
-    console.log("Passenger:", baggage.getPassenger().getName());
-    console.log("\n");
-});
-
-console.log("Baggage Tag:");
-baggageTags.forEach(baggageTag => {
-    console.log("Baggage:", baggageTag.getBaggage().getPassenger().getName());
-    console.log("\n");
-});
-
-console.log("Booking:");
-bookings.forEach(booking => {
-    console.log("Booking Number:", booking.getBookingNumber());
-    console.log("Total Amount:", booking.getTotalAmount());
-    console.log("\n");
-});
-
-console.log("Airport:");
-airports.forEach(airport => {
-    console.log("Name:", airport.getName());
-    console.log("Code:", airport.getCode());
-    console.log("Address:", airport.getAddress());
-    console.log("Contact Number:", airport.getContactNumber());
-    console.log("\n");
-});
+// Test User Story 6: Retrieve gate number for Flight F002
+const gateNumber2 = airline1.getGateNumberForFlight('F002');
+console.log('\nUser Story 6 - Gate Number for Flight F002:', gateNumber2);
+// Test User Story 5: Calculate total salary paid to all employees
+const totalSalaryPaid = airline1.getTotalSalaryPaid();
+console.log('\nUser Story 5 - Total Salary Paid to All Employees:', totalSalaryPaid);

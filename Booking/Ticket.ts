@@ -1,20 +1,4 @@
-import { Passenger } from '../Person/passenger';
-import { FlightInstance } from '../Airport/FlightInstance';
-
-export enum ClassType {
-    Economy,
-    Business,
-    First,
-    Classical
-}
-
-export enum MealType {
-    Standard,
-    Vegetarian,
-    Vegan,
-    GlutenFree
-}
-
+import { Passenger } from '../Person/Passenger';
 
 export class Ticket {
     private fareBasis: string;
@@ -22,15 +6,25 @@ export class Ticket {
     private seatNumber: string;
     private mealType: MealType;
     private passenger: Passenger;
-    private flightInstance: FlightInstance;
+    private flight: Flight;
+    private ticketClass: TicketClass;
 
-    constructor(fareBasis: string, classType: ClassType, seatNumber: string, mealType: MealType, passenger: Passenger, flightInstance: FlightInstance) {
+    constructor(
+        fareBasis: string,
+        classType: ClassType,
+        seatNumber: string,
+        mealType: MealType,
+        passenger: Passenger,
+        flight: Flight,
+        ticketClass: TicketClass
+    ) {
         this.fareBasis = fareBasis;
         this.classType = classType;
         this.seatNumber = seatNumber;
         this.mealType = mealType;
         this.passenger = passenger;
-        this.flightInstance = flightInstance;
+        this.flight = flight;
+        this.ticketClass = ticketClass;
     }
 
     getFareBasis(): string {
@@ -53,7 +47,11 @@ export class Ticket {
         return this.passenger;
     }
 
-    getFlightInstance(): FlightInstance {
-        return this.flightInstance;
+    getFlight(): Flight {
+        return this.flight;
+    }
+
+    getTicketClass(): TicketClass {
+        return this.ticketClass;
     }
 }

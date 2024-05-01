@@ -1,9 +1,4 @@
-export enum MealType {
-    Standard,
-    Vegetarian,
-    Vegan,
-    GlutenFree
-}
+
 
 
 export class Meal {
