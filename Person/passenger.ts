@@ -5,6 +5,7 @@ export class Passenger extends Person {
     private frequentFlyerMembership: string;
     private bookingReferenceNumber: string;
     public hasReturnTicket: boolean;
+    name : string;
 
     constructor(id: string, name: string, email: string, phone: string, specialMeal: MealType, frequentFlyerMembership: string, bookingReferenceNumber: string, hasReturnTicket: boolean) {
         super(id, name, email, phone);
@@ -12,6 +13,7 @@ export class Passenger extends Person {
         this.frequentFlyerMembership = frequentFlyerMembership;
         this.bookingReferenceNumber = bookingReferenceNumber;
         this.hasReturnTicket = hasReturnTicket;
+        this.name = name;
         
     }
 
@@ -26,5 +28,6 @@ export class Passenger extends Person {
     getBookingReferenceNumber(): string {
         return this.bookingReferenceNumber;
     }
+
 }
 

@@ -13,7 +13,8 @@ export enum FlightStatus {
     Arrived,
     Canceled,
     Diverted,
-    Unknown
+    Unknown,
+    OnTime
 }
 
 export class Schedule {

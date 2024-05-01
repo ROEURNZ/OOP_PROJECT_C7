@@ -1,7 +1,7 @@
 
 export abstract class Person {
     private id: string;
-    private name: string;
+    name: string;
     private email: string;
     private phone: string;
 
