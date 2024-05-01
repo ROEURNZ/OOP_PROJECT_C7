@@ -1,10 +1,11 @@
 import { MealType, CrewMember, FlightStatus } from "./Utilities/Enumerations";
-import { Passenger } from "./Person/Passenger";
+// import { Passenger } from "./Person/Passenger";
 import { Flight } from "./Airport/Flight";
 import { Airline } from "./Airport/Airline";
 
 import { Aircraft } from "./Airport/Aircraft";
 import { Crew } from "./Employee/Crew";
+import { Passenger } from "./Person/Passenger";
 
 
 // Creating passengers
