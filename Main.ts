@@ -77,13 +77,25 @@ console.log(passengerDetails4);
 const returnTicketsCount2 = airline1.getReturnTicketPassengersCount('F002');
 console.log('\nUser Story 2 - Return Tickets Count for Flight F002:', returnTicketsCount2);
 
+
+// Test User Story 3: Count flights for a given date
+const dateToCheck = new Date('2024-05-01');
+const flightsForDate = airline1.getFlightsForDate(dateToCheck);
+console.log(`\nUser Story 3 - Flights Count for Date ${dateToCheck.toDateString()}:`, flightsForDate.length);
+
+
 // Test User Story 4: Count meal types for Flight F002
 const mealRequirements2 = airline1.getMealRequirementsForFlight('F002');
 console.log('\nUser Story 4 - Meal Requirements for Flight F002:', mealRequirements2);
 
-// Test User Story 6: Retrieve gate number for Flight F002
-const gateNumber2 = airline1.getGateNumberForFlight('F002');
-console.log('\nUser Story 6 - Gate Number for Flight F002:', gateNumber2);
+
+
 // Test User Story 5: Calculate total salary paid to all employees
 const totalSalaryPaid = airline1.getTotalSalaryPaid();
 console.log('\nUser Story 5 - Total Salary Paid to All Employees:', totalSalaryPaid);
+
+
+
+// Test User Story 6: Retrieve gate number for Flight F002
+const gateNumber2 = airline1.getGateNumberForFlight('F002');
+console.log('\nUser Story 6 - Gate Number for Flight F002:', gateNumber2);
