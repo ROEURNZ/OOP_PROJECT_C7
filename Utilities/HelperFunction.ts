@@ -1,7 +1,7 @@
 
+import { ClassType, CrewMember, FlightStatus } from "./Enumerations";
 
-
-function describeClass(classType: CrewMember): string {
+export function describeClass(classType: CrewMember): string {
     return `This crew member is a ${classType}.`;
 }
 

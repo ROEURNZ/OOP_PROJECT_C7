@@ -1,7 +1,5 @@
 
 
-
-
 export class Airport {
     private name: string;
     private code: string;

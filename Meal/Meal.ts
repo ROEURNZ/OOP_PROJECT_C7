@@ -1,5 +1,5 @@
 
-
+import { MealType } from "../Utilities/Enumerations";
 
 export class Meal {
     private mealType: MealType;

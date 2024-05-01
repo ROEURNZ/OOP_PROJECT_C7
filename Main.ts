@@ -1,26 +1,20 @@
+import { MealType, CrewMember, FlightStatus } from "./Utilities/Enumerations";
+import { Passenger } from "./Person/Passenger";
+import { Flight } from "./Airport/Flight";
+import { Airline } from "./Airport/Airline";
 
+import { Aircraft } from "./Airport/Aircraft";
+import { Crew } from "./Employee/Crew";
 
-
-
-import {
-    Crew,
-    Flight,
-    FlightStatus,
-    MealType,
-    Passenger,
-    Airline,
-    CrewMember,
-    Aircraft,
-    Ticket
-} from './Airlines';
 
 // Creating passengers
 const passengers = [
-    new Passenger("PA001", "Bunnarith Phoeurn", "bunnarith.phoeurn@student.passerellesnumeriques.org", "9876543210", MealType.Standard, "FF001", "BRN001"),
-    new Passenger("PA002", "Votey Chhoeurn", "chhoeurn.votey@student.passerellesnumeriques.org", "0123456789", MealType.Vegetarian, "FF002", "BRN002"),
-    new Passenger("PA003", "Ryfin Sok", "ryfin.sok@student.passerellesnumeriques.org", "1234567890", MealType.Standard, "FF003", "BRN003"),
-    new Passenger("PA004", "Dara Rith", "dara.rith@student.passerellesnumeriques.org", "0987654321", MealType.Vegan, "FF004", "BRN004")
+    new Passenger("PA001", "Bunnarith Phoeurn", "bunnarith.phoeurn@student.passerellesnumeriques.org", "9876543210", MealType.Standard, "FF001", "BRN001", true),
+    new Passenger("PA002", "Votey Chhoeurn", "chhoeurn.votey@student.passerellesnumeriques.org", "0123456789", MealType.Vegetarian, "FF002", "BRN002", true),
+    new Passenger("PA003", "Ryfin Sok", "ryfin.sok@student.passerellesnumeriques.org", "1234567890", MealType.Standard, "FF003", "BRN003", false),
+    new Passenger("PA004", "Dara Rith", "dara.rith@student.passerellesnumeriques.org", "0987654321", MealType.Vegan, "FF004", "BRN004", true)
 ];
+
 
 // Create instances of Crew, Aircraft, and Airline
 const crews = [

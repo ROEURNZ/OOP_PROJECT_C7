@@ -1,4 +1,4 @@
-
+import { Person } from "../Person/Person";
 
 export class AirlineChef extends Person {
     private speciality: string;

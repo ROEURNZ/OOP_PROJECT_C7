@@ -1,3 +1,12 @@
+import { ClassType, FlightStatus, MealType } from "../Utilities/Enumerations";
+import { Crew } from "../Employee/Crew";
+import { Aircraft } from "./Aircraft";
+import { Airline } from "./Airline";
+import { Ticket } from "../Booking/Ticket";
+import { Passenger } from "../Person/Passenger";
+import { TicketClass } from "../Booking/TicketClass";
+
+
 export class Flight {
     private flightNumber: string;
     private date: Date;
@@ -33,10 +42,7 @@ export class Flight {
         this.tickets = tickets;
         this.gateNumber = gateNumber;
     }
-    addPassenger(passenger: Passenger){
-        this.passenger.push(passenger);
-    };
-    
+
     getFlightNumber(): string {
         return this.flightNumber;
     }

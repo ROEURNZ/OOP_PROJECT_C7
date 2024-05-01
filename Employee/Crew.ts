@@ -1,5 +1,6 @@
 
-import { Person } from '../person'; 
+import { Person } from '../Person/Person';
+import { CrewMember } from "../Utilities/Enumerations"; 
 
 export class Crew extends Person {
     private position: CrewMember;

@@ -1,3 +1,8 @@
+import { Crew } from "../Employee/Crew";
+import { Flight } from "./Flight";
+import { Passenger } from "../Person/Passenger";
+import { ClassType } from "../Utilities/Enumerations";
+
 export class Airline {
     private name: string;
     private code: string;

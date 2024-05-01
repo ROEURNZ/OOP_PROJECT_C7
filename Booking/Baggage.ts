@@ -1,4 +1,5 @@
-import { Passenger } from "../Passenger";
+import { Passenger } from "../Person/Passenger";
+import { Flight } from "../Airport/Flight";
 
 export class Baggage {
     private weight: number;

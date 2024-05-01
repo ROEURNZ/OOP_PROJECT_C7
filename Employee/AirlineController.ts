@@ -1,4 +1,5 @@
-
+import { Person } from "../Person/Person";
+import { Flight } from "../Airport/Flight";
 
 export class AirlineController extends Person {
     private flights: Flight[];

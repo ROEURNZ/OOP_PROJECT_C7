@@ -1,4 +1,7 @@
 import { Passenger } from '../Person/Passenger';
+import { ClassType, MealType } from "../Utilities/Enumerations";
+import { TicketClass } from "./TicketClass";
+import { Flight } from "../Airport/Flight";
 
 export class Ticket {
     private fareBasis: string;

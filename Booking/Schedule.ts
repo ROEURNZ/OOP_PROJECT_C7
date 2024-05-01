@@ -1,5 +1,6 @@
 
-import { FlightInstance } from "../Airport/FlightInstance";
+import { Flight } from "../Airport/Flight";
+import { Gate } from "../Airport/Gate";
 
 export class Schedule {
     private scheduleID: string;

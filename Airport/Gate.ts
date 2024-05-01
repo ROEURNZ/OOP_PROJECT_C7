@@ -1,6 +1,7 @@
 
 
 import { Airport } from "./Airport";
+import { Flight } from "./Flight";
 
 export class Gate {
     private number: number;
