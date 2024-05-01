@@ -6,8 +6,9 @@ export class Passenger extends Person {
     private specialMeal: MealType;
     private frequentFlyerMembership: string;
     private bookingReferenceNumber: string;
+    public hasReturnTicket: boolean;
 
-    constructor(id: string, name: string, email: string, phone: string, specialMeal: MealType, frequentFlyerMembership: string, bookingReferenceNumber: string) {
+    constructor(id: string, name: string, email: string, phone: string, specialMeal: MealType, frequentFlyerMembership: string, bookingReferenceNumber: string, hasReturnTicket: boolean) {
         super(id, name, email, phone);
         this.specialMeal = specialMeal;
         this.frequentFlyerMembership = frequentFlyerMembership;

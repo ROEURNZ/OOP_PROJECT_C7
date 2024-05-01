@@ -33,7 +33,10 @@ export class Flight {
         this.tickets = tickets;
         this.gateNumber = gateNumber;
     }
-
+    addPassenger(passenger: Passenger){
+        this.passenger.push(passenger);
+    };
+    
     getFlightNumber(): string {
         return this.flightNumber;
     }
