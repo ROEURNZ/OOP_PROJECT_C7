@@ -1,26 +1,39 @@
 
-import { FlightInstance } from "../Airport/FlightInstance";
+import { Flight } from "../Airport/Flight";
+import { Gate } from "../Airport/Gate";
 
 export class Schedule {
-    private date: Date;
+    private scheduleID: string;
+    private flight: Flight;
     private departureTime: Date;
-    private flightInstance: FlightInstance;
+    private arrivalTime: Date;
+    private gate: Gate;
 
-    constructor(date: Date, departureTime: Date, flightInstance: FlightInstance) {
-        this.date = date;
+    constructor(scheduleID: string, flight: Flight, departureTime: Date, arrivalTime: Date, gate: Gate) {
+        this.scheduleID = scheduleID;
+        this.flight = flight;
         this.departureTime = departureTime;
-        this.flightInstance = flightInstance;
+        this.arrivalTime = arrivalTime;
+        this.gate = gate;
     }
 
-    getDate(): Date {
-        return this.date;
+    getScheduleID(): string {
+        return this.scheduleID;
+    }
+
+    getFlight(): Flight {
+        return this.flight;
     }
 
     getDepartureTime(): Date {
         return this.departureTime;
     }
 
-    getFlightInstance(): FlightInstance {
-        return this.flightInstance;
+    getArrivalTime(): Date {
+        return this.arrivalTime;
+    }
+
+    getGate(): Gate {
+        return this.gate;
     }
 }

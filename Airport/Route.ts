@@ -1,16 +1,17 @@
 
 import { Airport } from './Airport';
-import { FlightInstance } from "./FlightInstance";
+import { Flight } from "./Flight";
 
-export class Leg {
+
+export class Route {
     private departureAirport: Airport;
     private destinationAirport: Airport;
-    private flightInstance: FlightInstance;
+    private flight: Flight;
 
-    constructor(departureAirport: Airport, destinationAirport: Airport, flightInstance: FlightInstance) {
+    constructor(departureAirport: Airport, destinationAirport: Airport, flight: Flight) {
         this.departureAirport = departureAirport;
         this.destinationAirport = destinationAirport;
-        this.flightInstance = flightInstance;
+        this.flight = flight;
     }
 
     getDepartureAirport(): Airport {
@@ -21,7 +22,7 @@ export class Leg {
         return this.destinationAirport;
     }
 
-    getFlightInstance(): FlightInstance {
-        return this.flightInstance;
+    getFlight(): Flight {
+        return this.flight;
     }
 }

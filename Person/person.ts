@@ -1,9 +1,12 @@
 
+
+
+// Abstract class
 export abstract class Person {
-    private id: string;
-    name: string;
-    private email: string;
-    private phone: string;
+    protected id: string;
+    protected name: string;
+    protected email: string;
+    protected phone: string;
 
     constructor(id: string, name: string, email: string, phone: string) {
         this.id = id;

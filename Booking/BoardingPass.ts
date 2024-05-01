@@ -1,20 +1,26 @@
-import { FlightInstance } from "../Airport/FlightInstance";
-import { Passenger } from "../Person/passenger";
+import { Flight } from "../Airport/Flight";
+import { Passenger } from "../Person/Passenger";
 
 export class BoardingPass {
     private passenger: Passenger;
-    private flightInstance: FlightInstance;
+    private flight: Flight;
+    private seatNumber: string;
 
-    constructor(passenger: Passenger, flightInstance: FlightInstance) {
+    constructor(passenger: Passenger, flight: Flight, seatNumber: string) {
         this.passenger = passenger;
-        this.flightInstance = flightInstance;
+        this.flight = flight;
+        this.seatNumber = seatNumber;
     }
 
     getPassenger(): Passenger {
         return this.passenger;
     }
 
-    getFlightInstance(): FlightInstance {
-        return this.flightInstance;
+    getFlight(): Flight {
+        return this.flight;
+    }
+
+    getSeatNumber(): string {
+        return this.seatNumber;
     }
 }

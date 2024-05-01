@@ -1,17 +1,18 @@
 
-import { Person } from '../Person/person'; 
+import { Person } from '../Person/Person';
+import { CrewMember } from "../Utilities/Enumerations"; 
 
 export class Crew extends Person {
-    private position: string;
-    private salary: number; 
+    private position: CrewMember;
+    private salary: number;
 
-    constructor(id: string, name: string, email: string, phone: string, position: string, salary: number) {
+    constructor(id: string, name: string, email: string, phone: string, position: CrewMember, salary: number) {
         super(id, name, email, phone);
         this.position = position;
         this.salary = salary;
     }
-     
-    getPosition(): string {
+
+    getPosition(): CrewMember {
         return this.position;
     }
 
