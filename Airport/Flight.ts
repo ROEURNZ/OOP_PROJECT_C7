@@ -83,10 +83,19 @@ export class Flight {
         return this.gateNumber;
     }
 
-    addPassenger(passenger: Passenger): void {
+    addPassenger(passenger: Passenger, seatClass: ClassType, seatNumber: string): void {
+        // Create a new instance of TicketClass
+        const ticketClass = new TicketClass("ID", "Name");
+
         // Add logic here to add passenger to the flight
-        this.tickets.push(new Ticket("FareBasis", ClassType.Economy, "SeatNumber", MealType.Standard, passenger, this, new TicketClass("ID", "Name")));
+        const bookingReference = "BookingReference"; // Assuming this is the booking reference
+        this.tickets.push(new Ticket(bookingReference, "FareBasis", seatClass, seatNumber, MealType.Standard, passenger, this, ticketClass));
     }
+
+
+
+
+
 
     toString(): string {
         const crewNames = this.crew.map(crew => crew.getName()).join(', ');
