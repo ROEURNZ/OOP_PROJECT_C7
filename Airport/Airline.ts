@@ -1,7 +1,7 @@
 import { Crew } from "../Employee/Crew";
 import { Flight } from "./Flight";
 import { Passenger } from "../Person/Passenger";
-import { ClassType } from "../Utilities/Enumerations";
+import { ClassType, MealType } from "../Utilities/Enumerations";
 
 export class Airline {
     private name: string;
@@ -90,17 +90,13 @@ export class Airline {
                 }
             }
         }
-        return null; // If booking reference not found
+        return null;
     }
 
 
-    // Inside the Airline class definition
-    getFlightsForDate(date: Date): Flight[] {
-        return this.flights.filter(flight => flight.getDate().toDateString() === date.toDateString());
-    }
 
 
-    // Method to get count of passengers with return tickets for a flight (//!User Story 2)
+    // Method to get count of passengers with return tickets for a flight (User Story 2)
 
     getReturnTicketPassengersCount(flightNumber: string): number {
         const flight = this.flights.find(flight => flight.getFlightNumber() === flightNumber);
@@ -112,33 +108,70 @@ export class Airline {
         }
     }
 
+    
+        // Method to get count of flights a pilot has to join on a given date (User Story 3)// Inside the Airline class definition
+
+            // Inside the Airline class definition
+    getFlightsForDate(date: Date): Flight[] {
+        return this.flights.filter(flight => flight.getDate().toDateString() === date.toDateString());
+    }
+
+
+        getFlightsForPilot(pilotId: string, date: Date): number {
+            let count = 0;
+            for (const flight of this.flights) {
+                if (flight.getDate().toDateString() === date.toDateString()) {
+                    let pilotFound = false;
+                    const crew = flight.getCrew();
+                    for (const crewMember of crew) {
+                        if (crewMember.getID() === pilotId && !pilotFound) {
+                            pilotFound = true;
+                        }
+                    }
+                    if (pilotFound) {
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+        
+    
+
+
+
+// Method to get count of each meal type required for a particular flight (User Story 4)
+getMealRequirementsForFlight(flightNumber: string): string {
+    const flight = this.flights.find(flight => flight.getFlightNumber() === flightNumber);
+    if (flight) {
+        const tickets = flight.getTickets();
+        const mealRequirements: { [mealType: string]: number } = {
+            'Standard Meal': 0,
+            'Vegetarian Meal': 0,
+            'Vegan Meal': 0,
+            'Gluten-Free Meal': 0,
+        };
+        tickets.forEach(ticket => {
+            const mealType = ticket.getMealType();
+            mealRequirements[mealType]++;
+        });
+
+        const formattedMealRequirements = Object.keys(mealRequirements)
+            .map(key => `'${key}': ${mealRequirements[key]}`)
+            .join(', ');
+
+        return `{ ${formattedMealRequirements} }`;
+    } else {
+        console.log('Flight not found with flight number:', flightNumber);
+        return '{}';
+    }
+}
+
+
     // Method to calculate total salary paid to all employees (//!User Story 5)
 
     getTotalSalaryPaid(): number {
         return this.employees.reduce((total, employee) => total + employee.getSalary(), 0);
-    }
-
-    
-    // Method to get count of flights a pilot has to join on a given date (//! User Story 3)
-    getFlightsForPilot(pilotId: string, date: Date): number {
-        return this.flights.filter(flight => flight.getCrew().some(crew => crew.getID() === pilotId) && flight.getDate().toDateString() === date.toDateString()).length;
-    }
-
-    // Method to get count of each meal type required for a particular flight (//! User Story 4)
-    getMealRequirementsForFlight(flightNumber: string): { [mealType: string]: number } {
-        const flight = this.flights.find(flight => flight.getFlightNumber() === flightNumber);
-        if (flight) {
-            const tickets = flight.getTickets();
-            const mealRequirements: { [mealType: string]: number } = {};
-            tickets.forEach(ticket => {
-                const mealType = ticket.getMealType(); // Access enum value directly
-                mealRequirements[mealType] = (mealRequirements[mealType] || 0) + 1;
-            });
-            return mealRequirements;
-        } else {
-            console.log('Flight not found with flight number:', flightNumber);
-            return {};
-        }
     }
 
 

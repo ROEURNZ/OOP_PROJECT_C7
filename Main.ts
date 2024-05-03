@@ -33,7 +33,7 @@ const airline1 = new Airline('Phnom Penh Airlines', 'EXA', 'Phnom Penh City', cr
 // Creating flights with defined aircraft and airline
 const flights = [
     new Flight(
-        'F001',
+        'FF001',
         new Date('2024-05-01T00:00:00'),
         new Date('2024-05-01T01:00:00'),
         new Date('2024-05-01T03:00:00'),
@@ -45,24 +45,39 @@ const flights = [
         airline1
     ),
     new Flight(
-        'F002',
+        'FF002',
         new Date('2024-05-02T00:00:00'),
         new Date('2024-05-02T03:00:00'),
         new Date('2024-05-02T05:00:00'),
         FlightStatus.Scheduled,
-        [crews[1]],
+        crews,
         [],
         102,
+        aircraft1,
+        airline1
+    ),
+    new Flight(
+        'FF003',
+        new Date('2024-05-02T00:00:00'),
+        new Date('2024-05-02T03:00:00'),
+        new Date('2024-05-02T05:00:00'),
+        FlightStatus.Scheduled,
+        crews,
+        [],
+        103,
         aircraft1,
         airline1
     )
 ]
 
+
+
+
 // Adding flights to the airline
 flights.forEach(flight => airline1.addFlight(flight));
 
-// Adding passengers to flights
 // Adding passengers to flights with seat class and seat number
+flights[0].addPassenger(passengers[0], ClassType.Economy, "10A");
 flights[0].addPassenger(passengers[2], ClassType.Economy, "10A");
 flights[1].addPassenger(passengers[3], ClassType.Business, "11B");
 flights[1].addPassenger(passengers[1], ClassType.Economy, "12C");
@@ -74,6 +89,14 @@ flights[0].addPassenger(passengers[0], ClassType.Business, "12C");
 console.log('\n=== User Story Test Cases ===\n');
 
 //! Test User Story 1: Retrieve passenger details by booking reference number for additional passengers
+const passengerDetails1 = airline1.getPassengerDetailsByBookingRef('BRN001');
+console.log('User Story 1 - Passenger Details by Booking Reference BRN001:');
+console.log(passengerDetails1);
+
+const passengerDetails2 = airline1.getPassengerDetailsByBookingRef('BRN002');
+console.log('User Story 1 - Passenger Details by Booking Reference BRN002:');
+console.log(passengerDetails2);
+
 const passengerDetails3 = airline1.getPassengerDetailsByBookingRef('BRN003');
 console.log('User Story 1 - Passenger Details by Booking Reference');
 console.log(passengerDetails3);
@@ -81,27 +104,37 @@ console.log(passengerDetails3);
 const passengerDetails4 = airline1.getPassengerDetailsByBookingRef('BRN004');
 console.log(passengerDetails4);
 
-const passengerDetails1 = airline1.getPassengerDetailsByBookingRef('BRN001');
-console.log(passengerDetails1);
 
+//? Test User Story 2: Count return tickets for Flight
+// Counting passengers with return tickets
+console.log('User Story 2 - Count return tickets for Flight');
 
-//? Test User Story 2: Count return tickets for Flight F002
-const returnTicketsCount2 = airline1.getReturnTicketPassengersCount('F002');
-// const returnTicketsCount3 = airline1.getReturnTicketPassengersCount('F001');
-console.log('\nUser Story 2 - Return Tickets Count for Flight F002:');
-console.log(returnTicketsCount2);
-// console.log(returnTicketsCount3);
+let passengersWithReturnTicketCount = 0;
+passengers.forEach(passenger => {
+    if (passenger.hasReturnTicket === "return") {
+        passengersWithReturnTicketCount++;
+    }
+});
+
+console.log('\nNumber of passengers with return tickets:', passengersWithReturnTicketCount);
 
 
 //? Test User Story 3: Count flights for a given date
+
 const dateToCheck = new Date('2024-05-01');
+const dateToCheck2 = new Date('2024-05-02');
 const flightsForDate = airline1.getFlightsForDate(dateToCheck);
+const flightsForDate2 = airline1.getFlightsForDate(dateToCheck2);
 console.log(`\nUser Story 3 - Flights Count for Date ${dateToCheck.toDateString()}:`, flightsForDate.length);
+console.log(`\nUser Story 3 - Flights Count for Date ${dateToCheck2.toDateString()}:`, flightsForDate2.length);
 
 
-//? Test User Story 4: Count meal types for Flight F002
-const mealRequirements2 = airline1.getMealRequirementsForFlight('F002');
-console.log('\nUser Story 4 - Meal Requirements for Flight F002:', mealRequirements2);
+
+
+
+//? Test User Story 4: Count meal types for Flight FF002
+const mealRequirements2 = airline1.getMealRequirementsForFlight('FF002');
+console.log('\nUser Story 4 - Meal Requirements for Flight FF002:', mealRequirements2);
 
 
 
@@ -111,9 +144,9 @@ console.log('\nUser Story 5 - Total Salary Paid to All Employees:', totalSalaryP
 
 
 
-//? Test User Story 6: Retrieve gate number for Flight F002
-const gateNumber2 = airline1.getGateNumberForFlight('F002');
-console.log('\nUser Story 6 - Gate Number for Flight F002:', gateNumber2);
+//? Test User Story 6: Retrieve gate number for Flight FF002
+const gateNumber2 = airline1.getGateNumberForFlight('FF002');
+console.log('\nUser Story 6 - Gate Number for Flight FF002:', gateNumber2);
 
 
 

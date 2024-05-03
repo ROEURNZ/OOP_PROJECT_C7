@@ -89,11 +89,11 @@ export class SeatSelector {
     }
 }
 
+
 // Additional class for LoungeStaff
 export class LoungeStaff {
-    // Method to verify eligibility of passengers entering the lounge
-    verifyPassengerEligibility(passenger: Passenger): boolean {
-        // Logic to verify eligibility based on ticket class or loyalty status
-        return true; // Assume all passengers are eligible for demonstration purposes
+    verifyPassengerEligibility(passenger: Passenger): string {
+        return true ? 'Eligible' : 'Not Eligible';
     }
 }
+

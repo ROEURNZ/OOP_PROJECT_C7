@@ -8,6 +8,14 @@ export enum ClassType {
     Classical = "Classical"
 }
 
+export enum CabinClass {
+    ECONOMY = "Economy",
+    BUSINESS = "Business",
+    FIRST_CLASS = "First Class",
+    PREMIUM_ECONOMY = "Premium Economy"
+}
+
+
 // Enums for Meal Type
 export enum MealType {
     Standard = "Standard Meal",

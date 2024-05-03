@@ -1,3 +1,4 @@
+import { CabinClass } from "../Utilities/Enumerations"; // Assuming you have a CabinClass enum defined
 
 export class Aircraft {
     private registrationNumber: string;
@@ -20,5 +21,25 @@ export class Aircraft {
 
     getCapacity(): number {
         return this.capacity;
+    }
+}
+
+
+
+// Define the Seat class
+export class Seat {
+    constructor(public seatNumber: string, public cabinClass: CabinClass) {}
+}
+
+// Define the AircraftLayout class
+export class AircraftLayout {
+    private seatsByClass: Map<CabinClass, Seat[]> = new Map();
+
+    addSeats(cabinClass: CabinClass, seats: Seat[]) {
+        this.seatsByClass.set(cabinClass, seats);
+    }
+
+    getSeats(cabinClass: CabinClass): Seat[] {
+        return this.seatsByClass.get(cabinClass) || [];
     }
 }

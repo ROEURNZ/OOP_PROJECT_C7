@@ -41,11 +41,15 @@ export class Flight {
         this.airline = airline;
         this.tickets = tickets;
         this.gateNumber = gateNumber;
+
+        
     }
 
     getFlightNumber(): string {
         return this.flightNumber;
     }
+
+    
 
     getDate(): Date {
         return this.date;

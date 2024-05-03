@@ -22,7 +22,7 @@ export class Passenger extends Person {
         this.specialMeal = specialMeal;
         this.frequentFlyerMembership = frequentFlyerMembership;
         this.bookingReferenceNumber = bookingReferenceNumber;
-        this.hasReturnTicket = hasReturnTicket ? "return" : "not return"; // Assign string value
+        this.hasReturnTicket = hasReturnTicket ? "return" : "not return"; 
     }
 
     getSpecialMeal(): MealType {
@@ -38,12 +38,9 @@ export class Passenger extends Person {
     }
 
     getTickets(): Ticket[] {
-        // If passenger has return tickets, return actual tickets associated with the passenger
         if (this.hasReturnTicket) {
-            // Replace [] with actual implementation to retrieve tickets
             return []; 
         } else {
-            // If passenger doesn't have return tickets, return an empty array
             return [];
         }
     }
