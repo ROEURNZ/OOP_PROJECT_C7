@@ -12,11 +12,11 @@ import { CustomerServiceRepresentative, FlightDispatcher, MaintenanceCrewMember,
 
 // Creating passengers
 const passengers = [
-    new Passenger("PA001", "Bunnarith Phoeurn", "bunnarith.phoeurn@student.passerellesnumeriques.org", "086936150", MealType.Standard, "FF001", "BRN001", false),
+    new Passenger("PA001", "Bunnarith Phoeurn", "bunnarith.phoeurn@student.passerellesnumeriques.org", "086936150", MealType.Standard, "FF001", "BRN001", true),
     new Passenger("PA002", "Votey Chhoeurn", "chhoeurn.votey@student.passerellesnumeriques.org", "0123456789", MealType.Vegetarian, "FF002", "BRN002", true),
     new Passenger("PA003", "Ryfin Sok", "ryfin.sok@student.passerellesnumeriques.org", "1234567890", MealType.Standard, "FF003", "BRN003", false),
     new Passenger("PA004", "Dara Rith", "dara.rith@student.passerellesnumeriques.org", "0987654321", MealType.Vegan, "FF004", "BRN004", false),
-    new Passenger("PA005", "Roeurn KAKI", "roeurn.kaki@student.passerellesnumeriques.org", "0987654321", MealType.Vegetarian, "FF004", "BRN004", true)
+    new Passenger("PA005", "Roeurn KAKI", "roeurn.kaki@student.passerellesnumeriques.org", "0987654321", MealType.Vegetarian, "FF005", "BRN004", true)
 ];
 
 
@@ -66,6 +66,7 @@ flights.forEach(flight => airline1.addFlight(flight));
 flights[0].addPassenger(passengers[2], ClassType.Economy, "10A");
 flights[1].addPassenger(passengers[3], ClassType.Business, "11B");
 flights[1].addPassenger(passengers[1], ClassType.Economy, "12C");
+flights[0].addPassenger(passengers[0], ClassType.Business, "12C");
 
 
 
@@ -74,16 +75,22 @@ console.log('\n=== User Story Test Cases ===\n');
 
 //! Test User Story 1: Retrieve passenger details by booking reference number for additional passengers
 const passengerDetails3 = airline1.getPassengerDetailsByBookingRef('BRN003');
-console.log('User Story 1 - Passenger Details by Booking Reference BRN003:');
+console.log('User Story 1 - Passenger Details by Booking Reference');
 console.log(passengerDetails3);
 
 const passengerDetails4 = airline1.getPassengerDetailsByBookingRef('BRN004');
-// console.log('\nUser Story 1 - Passenger Details by Booking Reference BRN004:');
 console.log(passengerDetails4);
+
+const passengerDetails1 = airline1.getPassengerDetailsByBookingRef('BRN001');
+console.log(passengerDetails1);
+
 
 //? Test User Story 2: Count return tickets for Flight F002
 const returnTicketsCount2 = airline1.getReturnTicketPassengersCount('F002');
-console.log('\nUser Story 2 - Return Tickets Count for Flight F002:', returnTicketsCount2);
+// const returnTicketsCount3 = airline1.getReturnTicketPassengersCount('F001');
+console.log('\nUser Story 2 - Return Tickets Count for Flight F002:');
+console.log(returnTicketsCount2);
+// console.log(returnTicketsCount3);
 
 
 //? Test User Story 3: Count flights for a given date
