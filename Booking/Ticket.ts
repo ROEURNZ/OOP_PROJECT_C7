@@ -4,6 +4,7 @@ import { TicketClass } from "./TicketClass";
 import { Flight } from "../Airport/Flight";
 
 export class Ticket {
+    private bookingReferenceNumber: string;  // Added booking reference number property
     private fareBasis: string;
     private classType: ClassType;
     private seatNumber: string;
@@ -13,6 +14,7 @@ export class Ticket {
     private ticketClass: TicketClass;
 
     constructor(
+        bookingReferenceNumber: string,  // Added as a parameter
         fareBasis: string,
         classType: ClassType,
         seatNumber: string,
@@ -21,6 +23,7 @@ export class Ticket {
         flight: Flight,
         ticketClass: TicketClass
     ) {
+        this.bookingReferenceNumber = bookingReferenceNumber;  // Initialize the booking reference number
         this.fareBasis = fareBasis;
         this.classType = classType;
         this.seatNumber = seatNumber;
@@ -28,6 +31,10 @@ export class Ticket {
         this.passenger = passenger;
         this.flight = flight;
         this.ticketClass = ticketClass;
+    }
+
+    getBookingReferenceNumber(): string {
+        return this.bookingReferenceNumber;  // Getter for booking reference number
     }
 
     getFareBasis(): string {
@@ -40,6 +47,11 @@ export class Ticket {
 
     getSeatNumber(): string {
         return this.seatNumber;
+    }
+
+        // New setter for seat number
+    setSeatNumber(newSeatNumber: string): void {
+        this.seatNumber = newSeatNumber;
     }
 
     getMealType(): MealType {
